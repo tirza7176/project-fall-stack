@@ -1,0 +1,39 @@
+@local=http://localhost:3000
+POST  {{local}}/order
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGE2ZGQyN2FkMWQ1YzA4OTI5MzliNmQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3NTYxOTA3OTR9.yFfxzevbcTID_tUOaFzGbtz2genvkSO_Ff1gPkZwJjo
+Content-Type: application/json
+
+
+ {
+  "date": "2025-09-26T10:00:00.000Z",
+  "place": "ramat gan",
+  "amount": 60,
+  "products": [
+    {
+      "product": "68489cc4a7a09121161c17d8", 
+      "quantity": 60
+    },
+    {
+      "product": "68aa3a1d121b13c8969f2b93",
+      "quantity": 60
+    }
+  ],
+  "customer": "68a60841fd7bf3085d257ad5",
+  "status": "pending"
+  
+}
+
+
+
+
+###
+GET  {{local}}/order/
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGE2ZGQyN2FkMWQ1YzA4OTI5MzliNmQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3NTYxNDUwODN9.KwVl6pUHpoXRlEQC3dFikTcKTQxu3wTcU7mO7FNmY34
+###
+POST {{local}}/users/login
+Content-Type: application/json
+
+
+{"email":"beni@gmail.com",
+"password": "BEni@3079"}
+
