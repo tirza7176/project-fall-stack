@@ -13,21 +13,26 @@ const productSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: true,
-        minlength: 2,
+
         maxlength: 2500,
+        default: "",
     },
     image: {
         type: String,
-        required: true,
+
         minlength: 2,
         maxlength: 1024,
         default: "https://www.boker.co.il/userfiles/web_pages/picture_41.webp",
     },
     price: {
         type: Number,
-        required: true,
         min: 0,
+        default: 0,
+    },
+    pricingType: {
+        type: String,
+        enum: ["basic", "perPerson", "perItem"],
+        required: true,
     },
     menuType: {
         type: String,
@@ -56,10 +61,11 @@ const productSchema = new mongoose.Schema({
 
 const Product = mongoose.model("Product", productSchema, "product");
 const productValidation = Joi.object({
-    name: Joi.string().min(2).max(256).required(),
-    description: Joi.string().min(2).max(2500).required(),
-    image: Joi.string().uri().min(2).max(2500).required(),
-    price: Joi.number().min(0).required(),
+    name: Joi.string().min(2).max(256),
+    description: Joi.string().allow("").max(2500),
+    image: Joi.string().uri().min(2).max(2500).allow(""),
+    price: Joi.number().min(0),
+    pricingType: Joi.string().valid("basic", "perPerson", "perItem").required(),
     menuType: Joi.string().valid("seating", "buffet").required(),
     foodType: Joi.string().valid("meat", "dairy", "pareve").required(),
     isUpgrade: Joi.boolean(),

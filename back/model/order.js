@@ -37,6 +37,11 @@ const orderSchema = new mongoose.Schema({
         enum: ["pending", "confirmed", "canceled", "expired"],
         default: "pending",
     },
+    menuType: {
+        type: String,
+        enum: ["seating", "buffet"],
+        required: true
+    },
     totalPrice: {
         type: Number,
         default: 0,
@@ -48,8 +53,19 @@ orderSchema.pre("save", async function (next) {
         await this.populate("products.product");
 
         let total = 0;
+        if (this.menuType === "seating") {
+            total += 70 * this.amount;
+        } else if (this.menuType === "buffet") {
+            total += 50 * this.amount;
+        }
         this.products.forEach(item => {
-            total += item.product.price * item.quantity;
+            const product = item.product;
+
+            if (product.pricingType === "perPerson") {
+                total += product.price * this.amount;
+            } else if (product.pricingType === "perItem") {
+                total += product.price * item.quantity;
+            }
         });
 
         this.totalPrice = total;
@@ -58,7 +74,6 @@ orderSchema.pre("save", async function (next) {
         next(err);
     }
 });
-
 orderSchema.pre("save", function (next) {
     const now = new Date();
     if (this.date < now && this.status === "pending") {
@@ -78,6 +93,7 @@ const orderValidation = Joi.object({
     })).required(),
     customer: Joi.string().required(),
     status: Joi.string().valid("pending", "confirmed", "canceled"),
+    menuType: Joi.string().valid("seating", "buffet").required(),
     totalPrice: Joi.number(),
 })
 module.exports = {

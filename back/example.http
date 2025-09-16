@@ -30,7 +30,7 @@ Content-Type: application/json
 GET  {{local}}/order/
 x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGE2ZGQyN2FkMWQ1YzA4OTI5MzliNmQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3NTYxNDUwODN9.KwVl6pUHpoXRlEQC3dFikTcKTQxu3wTcU7mO7FNmY34
 ###
-POST {{local}}/users/login
+POST {{local}}/users
 Content-Type: application/json
 
 
