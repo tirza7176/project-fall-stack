@@ -12,7 +12,7 @@ async function login(credentials) {
     try {
         const response = await httpService.post("/users/login", credentials);
 
-        setToken(response.data)
+        setToken(response.data.token)
         return response;
     } catch (error) {
 

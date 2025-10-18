@@ -25,8 +25,9 @@ function Navbar() {
 
   return (
     <nav
-      className="navbar navbar-expand-md bg-primary bg-opacity-75 shadow-sm"
+      className="navbar navbar-expand-md  bg-opacity-75 shadow-sm"
       aria-label="navbar"
+      style={{ backgroundColor: "#8B4513", color: "white", padding: "20px" }}
     >
       <div className="container-fluid">
         <Link className="navbar-brand text-white fw-bold fs-3" to="/events">
@@ -48,7 +49,7 @@ function Navbar() {
           <ul className="navbar-nav me-auto mb-2 mb-md-0">
             <li className="nav-item">
               <NavLink className="nav-link text-white" to="/events/about">
-                About
+                אודות
               </NavLink>
             </li>
 
@@ -67,7 +68,7 @@ function Navbar() {
                     className="nav-link text-white"
                     to="/events/createnewOrder"
                   >
-                    create order
+                    התחל הזמנה
                   </NavLink>
                 </li>
               </>
@@ -76,7 +77,7 @@ function Navbar() {
               <>
                 <li className="nav-item">
                   <NavLink className="nav-link text-white" to="/events/orders">
-                    orders
+                    הזמנות
                   </NavLink>
                 </li>
               </>
@@ -103,19 +104,19 @@ function Navbar() {
             {user ? (
               <li className="nav-item">
                 <NavLink className="nav-link text-white" to="/events/signout">
-                  logout
+                  התנתקות
                 </NavLink>
               </li>
             ) : (
               <>
                 <li className="nav-item">
                   <NavLink className="nav-link text-white" to="/events/signup">
-                    Sign up
+                    הרשמה
                   </NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink className="nav-link text-white" to="/events/signin">
-                    Login
+                    התחברות
                   </NavLink>
                 </li>
               </>

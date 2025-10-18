@@ -1,4 +1,4 @@
 function Footer() {
-  return <div>hellow</div>;
+  return <div>צור קשר</div>;
 }
 export default Footer;

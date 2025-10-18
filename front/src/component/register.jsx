@@ -63,12 +63,12 @@ function Register() {
           await createUser({
             ...values,
           });
-          console.log(response.name.firstName);
+          console.log(values.name.firstName);
           await login({ email: values.email, password: values.password });
           setSuccess(true);
           setTimeout(() => {
             navigate("/events");
-          }, 2500);
+          }, 1500);
         } catch (err) {
           if (err.response?.status === 400) {
             setIsRegistered(true);
@@ -167,9 +167,14 @@ function Register() {
           />
         </div>
         <button
-          className="btn btn-primary w-100"
+          className="btn w-100"
           type="submit"
           disabled={!isValid}
+          style={{
+            backgroundColor: "#A0522D",
+            color: "white",
+            fontSize: "bold",
+          }}
         >
           הרשמה
         </button>

@@ -12,6 +12,9 @@ function Input({ label, error, ...rest }) {
             className={["form-control", error ? "is-invalid" : ""].join(" ")}
             id={name}
             {...rest}
+            style={{
+              backgroundColor: "#dbcbb5ff",
+            }}
           ></input>
 
           <div className="invalid-feedback text-danger ms-1">{error}</div>
