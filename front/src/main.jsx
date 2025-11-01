@@ -8,6 +8,7 @@ import { BrowserRouter } from "react-router";
 import { AuthProvider } from "./context/authContext.jsx";
 import { SearchProvider } from "./context/searchProvider.jsx";
 import "bootstrap/dist/css/bootstrap.css";
+
 import "bootstrap/dist/js/bootstrap.bundle";
 import "bootstrap-icons/font/bootstrap-icons.css";
 

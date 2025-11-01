@@ -60,12 +60,12 @@ function Navbar() {
                     className="nav-link text-white"
                     to="/events/myOrders"
                   >
-                    My orders
+                    הזמנות שלי
                   </NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    className="nav-link text-white"
+                    className="btn btn-success ms-2"
                     to="/events/createnewOrder"
                   >
                     התחל הזמנה

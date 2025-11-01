@@ -10,6 +10,7 @@ import Signin from "./component/sign-in";
 import Logout from "./component/logout";
 import Navbar from "./component/navbar";
 import Footer from "./component/footer";
+import NewOrder from "./pages/createnewOrder";
 function App() {
   return (
     <div className="min-vh-100 d-flex flex-column overflow-x-hidden">
@@ -23,6 +24,7 @@ function App() {
           <Route path="/events/signout" element={<Logout />} />
           <Route path="/events/signup" element={<Register />} />
           <Route path="/events/signin" element={<Signin />} />
+          <Route path="/events/createnewOrder" element={<NewOrder />} />
         </Routes>
       </main>
       <Footer />
